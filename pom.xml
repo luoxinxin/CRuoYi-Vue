@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.ruoyi</groupId>
+  <groupId>com.ruoyi</groupId>
   <artifactId>ruoyi</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -12,19 +12,23 @@
   <description>若依管理系统</description>
 
   <properties>
+    <ruoyi.version>1.0-SNAPSHOT</ruoyi.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
+    <velocity.version>2.3</velocity.version>
+    <commons.collections.version>3.2.2</commons.collections.version>
+    <pagehelper.boot.version>1.4.5</pagehelper.boot.version>
   </properties>
+
 
   <modules>
     <module>ruoyi-admin</module>
-    <module>ruoyi-common</module>
     <module>ruoyi-framework</module>
-    <module>ruoyi-generator</module>
-    <module>ruoyi-quartz</module>
     <module>ruoyi-system</module>
+    <module>ruoyi-quartz</module>
+    <module>ruoyi-generator</module>
+    <module>ruoyi-common</module>
   </modules>
-
   <dependencyManagement>
     <dependencies>
 
@@ -37,9 +41,39 @@
         <scope>import</scope>
       </dependency>
 
+      <!-- velocity代码生成使用模板 -->
+      <dependency>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity-engine-core</artifactId>
+        <version>${velocity.version}</version>
+      </dependency>
+
+      <!-- collections工具类 -->
+      <dependency>
+        <groupId>commons-collections</groupId>
+        <artifactId>commons-collections</artifactId>
+        <version>${commons.collections.version}</version>
+      </dependency>
+
+      <!-- 通用工具-->
+      <dependency>
+        <groupId>com.ruoyi</groupId>
+        <artifactId>ruoyi-common</artifactId>
+        <version>${ruoyi.version}</version>
+      </dependency>
+
+      <!-- pagehelper 分页插件 -->
+      <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper-spring-boot-starter</artifactId>
+        <version>${pagehelper.boot.version}</version>
+      </dependency>
+
 
     </dependencies>
   </dependencyManagement>
+
+
 
   <build>
     <plugins>
